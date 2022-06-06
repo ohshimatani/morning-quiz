@@ -3,10 +3,13 @@ import StartTitle from './components/StartTitle';
 import StartButton from './components/StartButton';
 
 function App() {
+	const clickAlert = () => {
+		alert('clicked!!!');
+	};
   return (
 		<div>
 			<StartTitle />
-			<StartButton />
+			<StartButton onClick={clickAlert}/>
 		</div>
   );
 }
