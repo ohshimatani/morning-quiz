@@ -2,14 +2,11 @@ import StartTitle from "./StartTitle";
 import StartButton from "./StartButton";
 import React from "react";
 
-function StartPage() {
-	const clickAlert = () => {
-		alert('clicked!!!');
-	};
+function StartPage(props) {
 	return (
 		<React.Fragment>
 			<StartTitle />
-			<StartButton onClick={clickAlert}/>
+			<StartButton onClick={props.setPageState}/>
 		</React.Fragment>
 );
 }
