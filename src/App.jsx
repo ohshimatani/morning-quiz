@@ -12,15 +12,7 @@ const App = () => {
 	// setting for state
 	const [pageState, setPageState] = useState("start");// start, question, end
 	const [questionIndex, incrementQuestionIndex] = useState(0);
-
-	// setting for question index
-	// const incrementQuestionIndex = () => {
-	// 	if (questionIndex <= questions.length) {
-	// 		questionIndex++;
-	// 	} else {
-	// 		setPageState("end");
-	// 	}
-	// }
+	const [isCorrect, setIsCorrect] = useState(false);
 
 	if (pageState === "start") {
 		return (
@@ -30,7 +22,7 @@ const App = () => {
 		return (
 			<>
 				<QuestionIndex questionIndex={questionIndex} />
-				<QuestionWord />
+				<QuestionWord word={questions[questionIndex].word}/>
 				<AnswerForm />
 				<NextButton onClick={() => incrementQuestionIndex(questionIndex + 1)} />
 			</>

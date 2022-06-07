@@ -1,10 +1,8 @@
 
-const word = "mkdir";
-
-const QuestionWord = () => {
+const QuestionWord = (props) => {
 	return (
 		<div className={divClass}>
-			<p className={pClass}>{word}</p>
+			<p className={pClass}>{props.word}</p>
 		</div>
 	);
 }
@@ -23,6 +21,8 @@ const pClass = `
 	border-gray-400
 	rounded-l
 	p-20
+	w-2/3
+	h-1/4
 	text-center
 	text-9xl
 	font-mono

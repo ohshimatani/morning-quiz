@@ -4,16 +4,18 @@ const thisFontSize = `text-3xl`;
 
 const AnswerForm = (props) => {
 	const [inputState, setInputState] = useState("");
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		if (inputState) {
-			setInputState("");
-		} else {
+	// const handleSubmit = (e) => {
+	// 	console.log("handle in")
+	// 	e.preventDefault();
+	// 	if (inputState) {
+	// 		setInputState("");
+	// 	} else {
+	// 		alert("input something");
+	// 	}
+	// }
 
-		}
-	}
 	return (
-		<form className={formClass} onSubmit={handleSubmit}>
+		<form className={formClass}>
 			<div className={wrapperClass}>
 				<input className={inputClass} type="text" placeholder="input here" value={inputState} onChange={e => setInputState(e.target.value)}></input>
 				<button className={okButtonClass} type="button" onClick={props.onClick}>
