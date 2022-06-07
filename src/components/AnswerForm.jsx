@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const thisFontSize = `text-3xl`;
 
 const AnswerForm = (props) => {
+	const [inputState, setInputState] = useState("");
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		if (inputState) {
+			setInputState("");
+		} else {
+
+		}
+	}
 	return (
-		<form className={formClass}>
+		<form className={formClass} onSubmit={handleSubmit}>
 			<div className={wrapperClass}>
-				<input className={inputClass} type="text" placeholder="input here"></input>
+				<input className={inputClass} type="text" placeholder="input here" value={inputState} onChange={e => setInputState(e.target.value)}></input>
 				<button className={okButtonClass} type="button" onClick={props.onClick}>
 					OK
 				</button>
-				<button className={cancelButtonClass} type="button">
-					Cancel
+				<button className={cancelButtonClass} type="button" onClick={() => setInputState("")}>
+					Clear
 				</button>
 			</div>
 		</form>
