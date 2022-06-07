@@ -3,7 +3,7 @@ import QuestionIndex from './components/QuestionIndex';
 import QuestionWord from './components/QuestionWord';
 import AnswerForm from './components/AnswerForm';
 import StartPage from './components/StartPage';
-import LabelAndNextButton from './components/LabelAndNextButton';
+import NextButton from './components/NextButton';
 
 // load a json file
 const questions = require('../src/questions.json');
@@ -23,17 +23,16 @@ const App = () => {
 	// }
 
 	if (pageState === "start") {
-		
 		return (
-			<StartPage onClick={() => setPageState("question")}/>
+			<StartPage onClick={() => setPageState("question")} />
 		);
-	} else if (pageState === "question"){
+	} else if (pageState === "question") {
 		return (
 			<>
-				<QuestionIndex qid={questionIndex}/>
+				<QuestionIndex questionIndex={questionIndex} />
 				<QuestionWord />
-				<AnswerForm onClick={() => incrementQuestionIndex(questionIndex + 1)}/>
-				<LabelAndNextButton />
+				<AnswerForm />
+				<NextButton onClick={() => incrementQuestionIndex(questionIndex + 1)} />
 			</>
 		);
 	} else {
