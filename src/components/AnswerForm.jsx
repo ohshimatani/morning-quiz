@@ -1,27 +1,23 @@
 import React, { useState } from 'react';
+// import { questions } from '../App';
 
 const thisFontSize = `text-3xl`;
 
 const AnswerForm = (props) => {
 	const [inputState, setInputState] = useState("");
-	// const handleSubmit = (e) => {
-	// 	console.log("handle in")
-	// 	e.preventDefault();
-	// 	if (inputState) {
-	// 		setInputState("");
-	// 	} else {
-	// 		alert("input something");
-	// 	}
-	// }
 
 	return (
 		<form className={formClass}>
 			<div className={wrapperClass}>
 				<input className={inputClass} type="text" placeholder="input here" value={inputState} onChange={e => setInputState(e.target.value)}></input>
-				<button className={okButtonClass} type="button" onClick={props.onClick}>
+				<button className={okButtonClass} type="button" onClick={() => props.setIsCorrect(props.checkAnswer(inputState))}>
 					OK
 				</button>
-				<button className={cancelButtonClass} type="button" onClick={() => setInputState("")}>
+				<button className={cancelButtonClass} type="button" onClick={() => {
+						setInputState("");
+						props.cancelButtonOnClick();
+					}
+				}>
 					Clear
 				</button>
 			</div>

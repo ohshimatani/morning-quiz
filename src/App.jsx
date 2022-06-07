@@ -6,13 +6,28 @@ import StartPage from './components/StartPage';
 import NextButton from './components/NextButton';
 
 // load a json file
-const questions = require('../src/questions.json');
+export const questions = require('../src/questions.json');
 
 const App = () => {
 	// setting for state
 	const [pageState, setPageState] = useState("start");// start, question, end
 	const [questionIndex, incrementQuestionIndex] = useState(0);
 	const [isCorrect, setIsCorrect] = useState(false);
+	const [isQuestionBoxColored, setIsQuestionBoxColored] = useState(false);
+
+	const checkAnswer = (inputText) => {
+		// eslint-disable-next-line eqeqeq
+		if (questions[questionIndex].answer == inputText || inputText == "next") {
+			setIsCorrect(true);
+			return true;
+		}
+		return false;
+	}
+
+	if (isCorrect) {
+		setIsQuestionBoxColored(true);
+		setIsCorrect(false);
+	}
 
 	if (pageState === "start") {
 		return (
@@ -22,9 +37,13 @@ const App = () => {
 		return (
 			<>
 				<QuestionIndex questionIndex={questionIndex} />
-				<QuestionWord word={questions[questionIndex].word}/>
-				<AnswerForm />
-				<NextButton onClick={() => incrementQuestionIndex(questionIndex + 1)} />
+				<QuestionWord word={questions[questionIndex].word} isQuestionBoxColored={isQuestionBoxColored}/>
+				<AnswerForm questionIndex={questionIndex} checkAnswer={checkAnswer} setIsCorrect={setIsCorrect} cancelButtonOnClick={() => setIsQuestionBoxColored(false)}/>
+				<NextButton onClick={() => {
+						incrementQuestionIndex(questionIndex + 1);
+						setIsQuestionBoxColored(false);
+						}
+					}/>
 			</>
 		);
 	} else {

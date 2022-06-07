@@ -1,10 +1,20 @@
+const coloredBorderClassName = "border-teal-500";
+const borderClassName = "border-gray-500";
 
 const QuestionWord = (props) => {
-	return (
+	if (props.isQuestionBoxColored) {
+		return (
+			<div className={divClass}>
+				<p className={pClass + coloredBorderClassName}>{props.word}</p>
+			</div>
+			);
+	} else {
+		return (
 		<div className={divClass}>
-			<p className={pClass}>{props.word}</p>
+			<p className={pClass + borderClassName}>{props.word}</p>
 		</div>
-	);
+		);
+	}
 }
 
 const divClass = `
@@ -18,7 +28,6 @@ const divClass = `
 const pClass = `
 	border-solid
 	border-2
-	border-gray-400
 	rounded-l
 	p-20
 	w-2/3
