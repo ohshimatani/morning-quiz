@@ -1,5 +1,4 @@
-function StartButton(props) {
-	const thisClassName = `
+const thisClassName = `
 		text-4xl
 		text-center
 		font-thin
@@ -14,6 +13,8 @@ function StartButton(props) {
 		hover:shadow-[0_0_10px_rgba(0,0,0,0)]
 		hover:opacity-90
 		`;
+
+function StartButton(props) {
 	return (
 		<div className={thisClassName} onClick={props.onClick}>スタート</div>
 	);

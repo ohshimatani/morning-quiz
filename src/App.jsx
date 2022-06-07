@@ -1,17 +1,12 @@
 import React from 'react';
-import StartTitle from './components/StartTitle';
-import StartButton from './components/StartButton';
+// import StartPage from './components/StartPage';
+import QuestionWord from './components/QuestionWord';
 
 function App() {
-	const clickAlert = () => {
-		alert('clicked!!!');
-	};
-  return (
-		<div>
-			<StartTitle />
-			<StartButton onClick={clickAlert}/>
-		</div>
-  );
+	return (
+		// <StartPage />
+		<QuestionWord />
+	);
 }
 
 export default App;
