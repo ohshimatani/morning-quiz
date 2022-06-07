@@ -32,45 +32,45 @@ const wrapperClass = `
 `;
 
 const inputClass = `
-appearance-none
-bg-transparent
-border-none
-w-full
-text-gray-700
-mr-3
-py-1
-px-2
-leading-tight
-focus:outline-none
-animate-bounce
-focus:animate-none
-font-mono
+	appearance-none
+	bg-transparent
+	border-none
+	w-full
+	text-gray-700
+	mr-3
+	py-1
+	px-2
+	leading-tight
+	focus:outline-none
+	animate-bounce
+	focus:animate-none
+	font-mono
 ${thisFontSize}
 `;
 
 const okButtonClass = `
-flex-shrink-0
-bg-blue-500
-hover:bg-blue-700
-border-blue-500
-hover:border-blue-700
-border-4
-text-white
-py-4
-px-8
-rounded
+	flex-shrink-0
+	bg-blue-500
+	hover:bg-blue-700
+	border-blue-500
+	hover:border-blue-700
+	border-4
+	text-white
+	py-4
+	px-8
+	rounded
 ${thisFontSize}
 `;
 
 const cancelButtonClass = `
-flex-shrink-0
-border-transparent
-border-4
-text-red-700
-hover:text-red-400
-py-4
-px-8
-rounded
+	flex-shrink-0
+	border-transparent
+	border-4
+	text-red-700
+	hover:text-red-400
+	py-4
+	px-8
+	rounded
 ${thisFontSize}
 `;
 
