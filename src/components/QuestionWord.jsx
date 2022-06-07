@@ -1,25 +1,31 @@
 
 const word = "mkdir";
 
-const qClass = `
+const QuestionWord = () => {
+	return (
+		<div className={divClass}>
+			<p className={pClass}>{word}</p>
+		</div>
+	);
+}
+
+const divClass = `
+	w-screen
+	p-20
+	flex
+	justify-center
+	items-center
+`;
+
+const pClass = `
 	border-solid
 	border-2
-	border-gray-500
-	rounded-xl
-	inline-block
+	border-gray-400
+	rounded-l
+	p-20
 	text-center
 	text-9xl
 	font-mono
-	m-10
-	p-10
 `;
-
-function QuestionWord() {
-	return (
-		<p className={qClass}>
-			{word}
-		</p>
-	);
-}
 
 export default QuestionWord;

@@ -16,7 +16,9 @@ const thisClassName = `
 
 function StartButton(props) {
 	return (
-		<div className={thisClassName} onClick={props.onClick}>スタート</div>
+		<div className={thisClassName} onClick={props.onClick}>
+			スタート
+		</div>
 	);
 };
 
