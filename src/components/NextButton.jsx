@@ -1,12 +1,12 @@
 const NextButton = (props) => {
 	return (
 		<div className={wrapperClassName}>
-			<button className={buttonClassName()} onClick={props.questionIndex}>Next</button>
+			<button className={buttonClassName()} onClick={props.onClick}>Next</button>
 		</div>
 	)
 }
 
-let isAllow = false;
+let isAllow = true;
 
 const wrapperClassName = `
 	w-2/3
