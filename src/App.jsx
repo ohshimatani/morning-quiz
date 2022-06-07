@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import QuestionWord from './components/QuestionWord';
 import AnswerForm from './components/AnswerForm';
-import StartTitle from './components/StartTitle';
-import StartButton from './components/StartButton';
+import StartPage from './components/StartPage';
 
 function App() {
 	/*
@@ -14,10 +13,11 @@ function App() {
 	switch (pageState) {
 		case "start":
 			return (
-				<>
-					<StartTitle />
-					<StartButton onClick={() => setPageState("quiz")}/>
-				</>
+				// <>
+				// 	<StartTitle />
+				// 	<StartButton onClick={() => setPageState("quiz")}/>
+				// </>
+				<StartPage onClick={setPageState("quiz")}/>
 			);
 		case "quiz":
 			return (

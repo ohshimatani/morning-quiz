@@ -59,6 +59,7 @@ const okButtonClass = `
 	py-4
 	px-8
 	rounded
+	active:animate-ping
 ${thisFontSize}
 `;
 
@@ -71,6 +72,7 @@ const cancelButtonClass = `
 	py-4
 	px-8
 	rounded
+	active:animate-ping
 ${thisFontSize}
 `;
 

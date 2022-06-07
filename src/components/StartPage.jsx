@@ -4,11 +4,18 @@ import React from "react";
 
 function StartPage(props) {
 	return (
-		<React.Fragment>
+		<div className={wrapperClass}>
 			<StartTitle />
-			<StartButton onClick={props.setPageState}/>
-		</React.Fragment>
+			<StartButton onClick={props.onClick}/>
+		</div>
 );
 }
+
+const wrapperClass = `
+	h-screen
+	flex
+	justify-center
+	items-center
+`;
 
 export default StartPage;
