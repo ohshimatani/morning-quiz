@@ -7,7 +7,7 @@ const AnswerForm = (props) => {
 		<form className={formClass}>
 			<div className={wrapperClass}>
 				<input className={inputClass} type="text" placeholder="input here"></input>
-				<button className={okButtonClass} type="button">
+				<button className={okButtonClass} type="button" onClick={props.onClick}>
 					OK
 				</button>
 				<button className={cancelButtonClass} type="button">

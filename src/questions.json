@@ -5,14 +5,19 @@
 		"answer": "make directory"
 	},
 	{
+		"word": "char",
+		"Classification": "Java etc.",
+		"answer": "charactor"
+	},
+	{
 		"word": "JSON",
 		"Classification": "JavaScript",
 		"answer": "JavaScript Object Notation"
 	},
 	{
-		"word": "sudo",
-		"Classification": "Linux command",
-		"answer": "superuser do"
+		"word": "CSS",
+		"Classification": "CSS",
+		"answer": "cascading style sheet"
 	},
 	{
 		"word": "SQL",
@@ -21,7 +26,7 @@
 	},
 	{
 		"word": "tar",
-	"Classification": "Linux command",
-	"answer": "tape archives"
+		"Classification": "Linux command",
+		"answer": "tape archives"
 	}
 ]

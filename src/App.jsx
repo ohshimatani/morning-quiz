@@ -3,35 +3,43 @@ import QuestionIndex from './components/QuestionIndex';
 import QuestionWord from './components/QuestionWord';
 import AnswerForm from './components/AnswerForm';
 import StartPage from './components/StartPage';
+import LabelAndNextButton from './components/LabelAndNextButton';
 
 // load a json file
 const questions = require('../src/questions.json');
-console.log(questions.length);
 
 const App = () => {
-	// state
-	const [isQuizPage, setPageState] = useState(true);
+	// setting for state
+	const [pageState, setPageState] = useState("start");// start, question, end
+	const [questionIndex, incrementQuestionIndex] = useState(0);
 
-	// question index
-	const questionIndex = 0;
-	const incrementQuestionIndex = () => {
-		questionIndex++;
-	}
+	// setting for question index
+	// const incrementQuestionIndex = () => {
+	// 	if (questionIndex <= questions.length) {
+	// 		questionIndex++;
+	// 	} else {
+	// 		setPageState("end");
+	// 	}
+	// }
 
-	if (isQuizPage) {
-		console.log("true");
+	if (pageState === "start") {
+		
+		return (
+			<StartPage onClick={() => setPageState("question")}/>
+		);
+	} else if (pageState === "question"){
 		return (
 			<>
-				<QuestionIndex questionIndex={questionIndex}/>
+				<QuestionIndex qid={questionIndex}/>
 				<QuestionWord />
-				<AnswerForm />
+				<AnswerForm onClick={() => incrementQuestionIndex(questionIndex + 1)}/>
+				<LabelAndNextButton />
 			</>
 		);
 	} else {
-		console.log("false");
-		return (
-			<StartPage onClick={() => setPageState(true)}/>
-		);
+		// return (
+		// 
+		// );
 	}
 }
 
