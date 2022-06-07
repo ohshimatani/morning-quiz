@@ -1,0 +1,27 @@
+[
+	{
+		"word": "mkdir",
+		"Classification": "Linux command",
+		"answer": "make directory"
+	},
+	{
+		"word": "JSON",
+		"Classification": "JavaScript",
+		"answer": "JavaScript Object Notation"
+	},
+	{
+		"word": "sudo",
+		"Classification": "Linux command",
+		"answer": "superuser do"
+	},
+	{
+		"word": "SQL",
+		"Classification": "SQL",
+		"answer": "structured query language"
+	},
+	{
+		"word": "tar",
+	"Classification": "Linux command",
+	"answer": "tape archives"
+	}
+]

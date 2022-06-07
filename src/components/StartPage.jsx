@@ -1,21 +1,23 @@
+import React from "react";
 import StartTitle from "./StartTitle";
 import StartButton from "./StartButton";
-import React from "react";
 
-function StartPage(props) {
+
+const StartPage = (props) => {
 	return (
-		<div className={wrapperClass}>
+		<div className={wholeWrapperClassName}>
 			<StartTitle />
 			<StartButton onClick={props.onClick}/>
 		</div>
 );
 }
 
-const wrapperClass = `
-	h-screen
+const wholeWrapperClassName = `
+	h-screens
 	flex
 	justify-center
 	items-center
+	flex-col
 `;
 
 export default StartPage;

@@ -2,11 +2,11 @@ import React from 'react';
 
 const thisFontSize = `text-3xl`;
 
-const AnswerForm = () => {
+const AnswerForm = (props) => {
 	return (
 		<form className={formClass}>
 			<div className={wrapperClass}>
-				<input className={inputClass} type="text" placeholder="input place"></input>
+				<input className={inputClass} type="text" placeholder="input here"></input>
 				<button className={okButtonClass} type="button">
 					OK
 				</button>
@@ -17,7 +17,7 @@ const AnswerForm = () => {
 		</form>
 	);
 }
-// w-full max-w-sm
+
 const formClass = `
 	w-2/3
 	mx-auto
