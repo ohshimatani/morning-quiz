@@ -12,7 +12,7 @@
 	{
 		"word": "JSON",
 		"Classification": "JavaScript",
-		"answer": "JavaScript Object Notation"
+		"answer": "JavaScript object notation"
 	},
 	{
 		"word": "SQL",
@@ -32,6 +32,6 @@
 	{
 		"word": "JSP",
 		"Classification": "Java",
-		"answer": "Java Server Page"
+		"answer": "Java server page"
 	}
 ]
