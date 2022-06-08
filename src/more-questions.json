@@ -1,0 +1,47 @@
+[
+	{
+		"word": "mkdir",
+		"Classification": "Linux command",
+		"answer": "make directory"
+	},
+	{
+		"word": "char",
+		"Classification": "Java etc.",
+		"answer": "character"
+	},
+	{
+		"word": "JSON",
+		"Classification": "JavaScript",
+		"answer": "JavaScript object notation"
+	},
+	{
+		"word": "SQL",
+		"Classification": "SQL",
+		"answer": "structured query language"
+	},
+	{
+		"word": "CSS",
+		"Classification": "CSS",
+		"answer": "cascading style sheet"
+	},
+	{
+		"word": "tar",
+		"Classification": "Linux command",
+		"answer": "tape archives"
+	},
+	{
+		"word": "JSP",
+		"Classification": "Java",
+		"answer": "Java server page"
+	},
+	{
+		"word": "JDK",
+		"Classification": "Java",
+		"answer": "Java development kit"
+	},
+	{
+		"word": "grep",
+		"Classification": "Linux command",
+		"answer": "global regular expression point"
+	}
+]

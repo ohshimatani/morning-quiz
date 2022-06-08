@@ -5,6 +5,7 @@ import AnswerForm from './components/AnswerForm';
 import StartPage from './components/StartPage';
 import NextButton from './components/NextButton';
 import WordClassLabel from './components/WordClassLabel';
+import EndPage from './components/EndPage';
 
 // load a json file
 export const questions = require('../src/questions.json');
@@ -26,19 +27,21 @@ const App = () => {
 		}
 		return false;
 	}
-	// -------
+	// end of check-------
 
-	// if "checkAnswer" said "true", box colored and reset flag("isCorrect").-------
+	// if "checkAnswer" said "true", word box colored and reset flag("isCorrect").-------
 	if (isCorrect) {
 		setIsQuestionBoxColored(true);
 		setIsCorrect(false);
 	}
-	// -------
+	// end if-------
 
-	// "pageState" is end
-	if (questionIndex === questions.length) {
+	// "pageState" is end-------
+	if (questionIndex === questions.length-1) {
+		incrementQuestionIndex(0);
 		setPageState("end");
 	}
+	// end if-------
 
 	// render page by "pageState"(start, question or end)-------
 	if (pageState === "start") {
@@ -59,10 +62,12 @@ const App = () => {
 					}/>
 			</>
 		);
-	} else {// end page
+	} else if (pageState === "end"){
 		return (
-			<QuestionIndex questionIndex={questionIndex} />
+			<EndPage />
 		);
+	} else {
+		return <p>error</p>;
 	}
 	// end of rendering-------
 

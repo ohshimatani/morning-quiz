@@ -28,7 +28,7 @@ const divClass = `
 const pClass = `
 	border-solid
 	border-2
-	rounded-l
+	rounded-xl
 	p-20
 	w-2/3
 	h-1/4
