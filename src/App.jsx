@@ -18,6 +18,14 @@ const App = () => {
 	const [isQuestionBoxColored, setIsQuestionBoxColored] = useState(false);
 	// end of setting for state-------
 
+	// "pageState" is end-------
+	if (questionIndex === questions.length-1) {
+		console.log("inin");
+		incrementQuestionIndex(0);
+		setPageState("end");
+	}
+	// end if-------
+
 	// check input text equal answer when rendering-------
 	const checkAnswer = (inputText) => {
 		// eslint-disable-next-line eqeqeq
@@ -33,13 +41,6 @@ const App = () => {
 	if (isCorrect) {
 		setIsQuestionBoxColored(true);
 		setIsCorrect(false);
-	}
-	// end if-------
-
-	// "pageState" is end-------
-	if (questionIndex === questions.length-1) {
-		incrementQuestionIndex(0);
-		setPageState("end");
 	}
 	// end if-------
 
@@ -67,7 +68,7 @@ const App = () => {
 			<EndPage />
 		);
 	} else {
-		return <p>error</p>;
+		return <h1>error</h1>;
 	}
 	// end of rendering-------
 

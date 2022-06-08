@@ -16,7 +16,10 @@ const EndPage = () => {
 			<dl className={dlClassName}>
 				<li className={liClassName}>React (JSのフレームワーク)</li>
 				<li className={liClassName}>TailwindCSS (CSSのフレームワーク)</li>
-				<li className={linkClassName}>https://github.com/ohshimatani/morning-quiz</li>
+				<li className={liClassName}>
+					<a className={linkClassName}href="https://github.com/ohshimatani/morning-quiz">https://github.com/ohshimatani/morning-quiz</a>
+					(<span className={spanClassName}>refs.txt</span>だけでも見て！)
+				</li>
 			</dl>
 
 		</div>
@@ -57,7 +60,11 @@ const linkClassName = `
 	text-blue-400
 	hover:text-blue-300
 	underline
+	text-xl
 `;
 
+const spanClassName = `
+	font-mono
+`;
 
 export default EndPage;

@@ -1,0 +1,8 @@
+JSONについて
+https://products.sint.co.jp/topsic/blog/json#:~:text=JSON%E3%81%A8%E3%81%AF%E3%80%8CJavaScript%20Object,%E5%AE%9A%E7%BE%A9%E6%96%B9%E6%B3%95%E3%80%8D%E3%81%AE%E3%81%93%E3%81%A8%E3%81%A7%E3%81%99%E3%80%82
+
+CSSの由来について
+http://www.htmq.com/csskihon/006.shtml
+
+tarコマンドについて
+https://qiita.com/a05kk/items/11fd3692eb8f6476dbb3
