@@ -10,12 +10,14 @@ import WordClassLabel from './components/WordClassLabel';
 export const questions = require('../src/questions.json');
 
 const App = () => {
-	// setting for state
+	// setting for state-------
 	const [pageState, setPageState] = useState("start");// start, question, end
 	const [questionIndex, incrementQuestionIndex] = useState(0);
 	const [isCorrect, setIsCorrect] = useState(false);
 	const [isQuestionBoxColored, setIsQuestionBoxColored] = useState(false);
+	// end of setting for state-------
 
+	// check input text equal answer when rendering-------
 	const checkAnswer = (inputText) => {
 		// eslint-disable-next-line eqeqeq
 		if (questions[questionIndex].answer == inputText || inputText == "next") {
@@ -24,12 +26,21 @@ const App = () => {
 		}
 		return false;
 	}
+	// -------
 
+	// if "checkAnswer" said "true", box colored and reset flag("isCorrect").-------
 	if (isCorrect) {
 		setIsQuestionBoxColored(true);
 		setIsCorrect(false);
 	}
+	// -------
 
+	// "pageState" is end
+	if (questionIndex === questions.length) {
+		setPageState("end");
+	}
+
+	// render page by "pageState"(start, question or end)-------
 	if (pageState === "start") {
 		return (
 			<StartPage onClick={() => setPageState("question")} />
@@ -48,11 +59,13 @@ const App = () => {
 					}/>
 			</>
 		);
-	} else {
-		// return (
-		// 
-		// );
+	} else {// end page
+		return (
+			<QuestionIndex questionIndex={questionIndex} />
+		);
 	}
+	// end of rendering-------
+
 }
 
 
