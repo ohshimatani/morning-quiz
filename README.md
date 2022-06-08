@@ -1,70 +1,145 @@
-# Getting Started with Create React App
+# React勉強メモ
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## create-react-appしたプロジェクトでTailwindCSSを使う
 
-## Available Scripts
+### 参考URL
 
-In the project directory, you can run:
+- TailwindCSS with `create-react-app`
+    
+    設定ほんま大変やった…
+    
+    WebPackのこと、なんもわかってないから、落ち着いたらしっかり理解できるようにせんとあかんなぁ
+    
 
-### `npm start`
+[Install Tailwind CSS with Create React App - Tailwind CSS](https://tailwindcss.com/docs/guides/create-react-app)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- `create-react-app`のファイル構成・及び不要なファイルについて
+    
+    （逆に）初期に必要な最低限のファイルは，
+    
+    - `public/index.html`
+    - `src/index.js, index.css, App.js`
+    
+    のみ
+    
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[Reactの身内向けチュートリアル（その１） - Qiita](https://qiita.com/zaburo/items/99dc965d273f1922deae)
 
-### `npm test`
+## React Hooksの使い方など
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### つまづきポイント
 
-### `npm run build`
+- `useState`利用時に，二層先の子コンポーネントに`useState`の更新関数を`props`を使って渡そうと思ったが，うまく行かなかった．
+    
+    ```jsx
+    const [state, setState] = useState(false);
+    ```
+    
+    ```jsx
+    <StartPage onClick={setState(true)} />
+    ```
+    
+    - **原因：**`props`の受け渡しは，変数でなくてはいけない（`setState(true)`は戻り値を持たないため，何も渡されず，その場で実行のみされる）
+    - **解決策：**アロー関数にするなどして、関数を変数っぽく扱い、実行を子コンポーネントに委ねる（JSやTSでは関数はデータ型）。
+    
+    ```jsx
+    <StartPage onClick={() => setState(true)} />
+    ```
+    
+- macOSからWindowsにGitを通じてクローンしてきたとき、`npm start`ができなかった。
+    - **原因：**そもそも`npm_modules`フォルダは`.gitignore`に含まれている。それぞれの端末にグローバルインストールされたnpmモジュールが違うため。
+    - **解決策：**クローンしたプロジェクトで`npm install`を行う→`package.json`の情報に基づいて、npmのモジュールがローカルインストールされる。
+    
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 参考URL
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `useContext`について
+    
+    `useContext`とは、複数階層を伴う親子関係にあるコンポーネント間において、値・データのやり取りを行うためのもの（それまでは`props`でバケツリレーを行う必要があった）
+    
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[[React] useContextの使い方を改めて確認してみた | DevelopersIO](https://dev.classmethod.jp/articles/react-i-checked-again-how-to-use-usecontext/)
 
-### `npm run eject`
+- 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Reactで嬉しいなぁと感じたこと
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### コンポーネント単位でUIを構成できるので，構成的にWebページを作れる．
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+HTMLファイルにごちゃごちゃと記述し，CSSファイルにもごちゃごちゃと記述していると，いつの間にか一つのファイルの情報が膨大になってしまい，泣きそうになる．後述のTailwindCSS等のCSSフレームワークを使うことで，スタイルの記述もJSファイル（or JSXファイル）への記述にまとめることができ，とても便利（しかもJS内なので，変数を使ったりできてとても便利）．
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### JSXが楽！
 
-## Learn More
+JSX（JavaScript XML）がとても楽．HTMLに似ているし，複数階層のタグツリーをまとめてコンポーネントとして管理できるので，宣言的で可読性が高くなる．
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## TailwindCSSで嬉しいなぁと感じたこと
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### JS内にスタイルを簡単に記述できる
 
-### Code Splitting
+例：こんな感じ
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```jsx
+const bigTextSize = "text-7xl";
+const midTextSize = "text-5xl";
+const smallTexSize = "text-4xl";
 
-### Analyzing the Bundle Size
+const EndPage = () => {
+	return (
+		<div className={wrapperClassName}>
+			<h2 className={h2ClassName}>いい朝は迎えられました？</h2>
+			<p className={pClassName}>このクイズの目的</p>
+			<dl className={dlClassName}>
+				<li className={liClassName}>エビングハウスへの仕返し</li>
+				<li className={liClassName}>単なる記号の意味付け</li>
+			</dl>
+			<p className={pClassName}>使った技術</p>
+			<dl className={dlClassName}>
+				<li className={liClassName}>React (JSのフレームワーク)</li>
+				<li className={liClassName}>TailwindCSS (CSSのフレームワーク)</li>
+				<li className={linkClassName}>https://github.com/ohshimatani/morning-quiz</li>
+			</dl>
+		</div>
+	);
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+const wrapperClassName = `
+	
+`;
 
-### Making a Progressive Web App
+const h2ClassName = `
+	${bigTextSize}
+	text-center
+	p-10
+	bg-blue-400
+	text-white
+	font-thin
+`;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+const pClassName = `
+	${midTextSize}
+	underline
+	m-10
+`;
 
-### Advanced Configuration
+const dlClassName = `
+	${smallTexSize}
+	ml-20
+`;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+const liClassName = `
+	p-3
+`;
 
-### Deployment
+const linkClassName = `
+	p-3
+	text-blue-400
+	hover:text-blue-300
+	underline
+`;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+export default EndPage;
+```
 
-### `npm run build` fails to minify
+### 結局CSSをしっかり理解しないと使いこなせなさそう
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Bootstrapなどの他のCSSフレームワークと違って，「なんかようわからんけど，こうしたら綺麗なUIができた」みたいなことは少なめ．あくまでもclassの記述を簡略化しているにとどまっている（？）ので，結局CSSをしっかり理解することになる（嫌やけど）．
