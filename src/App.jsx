@@ -4,6 +4,7 @@ import QuestionWord from './components/QuestionWord';
 import AnswerForm from './components/AnswerForm';
 import StartPage from './components/StartPage';
 import NextButton from './components/NextButton';
+import WordClassLabel from './components/WordClassLabel';
 
 // load a json file
 export const questions = require('../src/questions.json');
@@ -38,6 +39,7 @@ const App = () => {
 			<>
 				<QuestionIndex questionIndex={questionIndex} />
 				<QuestionWord word={questions[questionIndex].word} isQuestionBoxColored={isQuestionBoxColored}/>
+				<WordClassLabel classLabel={questions[questionIndex].Classification}/>
 				<AnswerForm questionIndex={questionIndex} checkAnswer={checkAnswer} setIsCorrect={setIsCorrect} cancelButtonOnClick={() => setIsQuestionBoxColored(false)}/>
 				<NextButton onClick={() => {
 						incrementQuestionIndex(questionIndex + 1);

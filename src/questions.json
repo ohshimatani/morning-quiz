@@ -15,18 +15,23 @@
 		"answer": "JavaScript Object Notation"
 	},
 	{
-		"word": "CSS",
-		"Classification": "CSS",
-		"answer": "cascading style sheet"
-	},
-	{
 		"word": "SQL",
 		"Classification": "SQL",
 		"answer": "structured query language"
 	},
 	{
+		"word": "CSS",
+		"Classification": "CSS",
+		"answer": "cascading style sheet"
+	},
+	{
 		"word": "tar",
 		"Classification": "Linux command",
 		"answer": "tape archives"
+	},
+	{
+		"word": "JSP",
+		"Classification": "Java",
+		"answer": "Java Server Page"
 	}
 ]
